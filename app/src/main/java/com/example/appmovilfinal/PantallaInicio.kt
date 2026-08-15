@@ -1,6 +1,8 @@
 package com.example.appmovilfinal
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -20,6 +22,16 @@ fun PantallaInicio(navController: NavController, viewModel: RecetaViewModel) {
         topBar = {
             TopAppBar(
                 title = { Text("Inicio", fontWeight = FontWeight.Bold) },
+                actions = {
+                    // --- NUEVO: Botón de Ajustes ---
+                    IconButton(onClick = { navController.navigate("ajustes") }) {
+                        Icon(
+                            imageVector = Icons.Filled.Settings,
+                            contentDescription = "Ir a Ajustes",
+                            tint = MaterialTheme.colorScheme.onPrimary
+                        )
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary
@@ -51,7 +63,9 @@ fun PantallaInicio(navController: NavController, viewModel: RecetaViewModel) {
                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
                 Column(
-                    modifier = Modifier.padding(24.dp).fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(24.dp)
+                        .fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text("Total de recetas guardadas:", style = MaterialTheme.typography.titleMedium)
@@ -69,7 +83,9 @@ fun PantallaInicio(navController: NavController, viewModel: RecetaViewModel) {
             // 5. Botón principal de navegación
             Button(
                 onClick = { navController.navigate("catalogo") },
-                modifier = Modifier.fillMaxWidth().height(50.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
             ) {
                 Text("Ir a mi Catálogo", fontSize = MaterialTheme.typography.titleMedium.fontSize)
             }

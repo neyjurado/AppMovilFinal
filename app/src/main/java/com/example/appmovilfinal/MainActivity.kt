@@ -6,8 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -21,7 +25,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            MaterialTheme {
+            // 1. Leemos el DataStore al nivel más alto de la app para saber si activar el modo oscuro
+            val context = LocalContext.current
+            val ajustesDataStore = remember { AjustesDataStore(context) }
+            val modoOscuroActivado by ajustesDataStore.modoOscuroFlow.collectAsState(initial = false)
+
+            // 2. Evaluamos qué paleta de colores usar
+            val colores = if (modoOscuroActivado) darkColorScheme() else lightColorScheme()
+
+            // 3. Aplicamos el tema dinámico a toda la aplicación
+            MaterialTheme(colorScheme = colores) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -56,6 +69,7 @@ fun NavegacionPrincipal() {
         composable("inicio") { PantallaInicio(navController, viewModel) }
         composable("catalogo") { PantallaCatalogo(navController, viewModel) }
         composable("agregar") { PantallaAgregarReceta(navController, viewModel) }
+
         composable(
             route = "detalle/{recetaId}",
             arguments = listOf(androidx.navigation.navArgument("recetaId") { type = androidx.navigation.NavType.IntType })
@@ -63,27 +77,15 @@ fun NavegacionPrincipal() {
             val id = backStackEntry.arguments?.getInt("recetaId") ?: 0
             PantallaDetalleReceta(navController, viewModel, id)
         }
+
         composable("recetas_top") {
             PantallaRecetasTop(navController = navController, viewModel = viewModel)
         }
-        composable("ajustes") { PantallaAjustes(navController) }
+
+        // La nueva ruta para tus preferencias
+        composable("ajustes") {
+            PantallaAjustes(navController = navController)
+        }
 
     }
-}
-
-//// --- LAS 5 PANTALLAS (Cascarones vacíos temporalmente, excepto Inicio y Catálogo que ya tienen su propio archivo) ---
-
-@Composable
-fun PantallaAgregarReceta(navController: NavController) {
-    Text("3. Formulario para Agregar Receta")
-}
-
-@Composable
-fun PantallaDetalleReceta(navController: NavController) {
-    Text("4. Detalles de la Receta")
-}
-
-@Composable
-fun PantallaAjustes(navController: NavController) {
-    Text("5. Ajustes y Favoritos")
 }
