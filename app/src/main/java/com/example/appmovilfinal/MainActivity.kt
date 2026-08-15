@@ -9,6 +9,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,13 +20,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 1. Conectar la lógica con la interfaz gráfica
         setContent {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                NavegacionPrincipal()
+            MaterialTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    NavegacionPrincipal()
+                }
             }
         }
     }
@@ -32,32 +35,34 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun NavegacionPrincipal() {
-    // 2. El motor de navegación
+    // 1. Obtenemos el contexto actual de la aplicación
+    val context = LocalContext.current
+
+    // 2. Instanciamos la Base de Datos y el Repositorio
+    val database = RecetaDatabase.getDatabase(context)
+    val repository = RecetaRepository(database.recetaDao())
+
+    // 3. Creamos el ViewModel usando nuestra fábrica (Factory)
+    val viewModel: RecetaViewModel = viewModel(
+        factory = RecetaViewModelFactory(repository)
+    )
+
+    // 4. El motor de navegación
     val navController = rememberNavController()
 
-    // 3. El mapa de rutas de la aplicación
+    // 5. El mapa de rutas de la aplicación
     NavHost(navController = navController, startDestination = "inicio") {
 
-        composable("inicio") { PantallaInicio(navController) }
-        composable("catalogo") { PantallaCatalogo(navController) }
-        composable("agregar") { PantallaAgregarReceta(navController) }
+        composable("inicio") { PantallaInicio(navController, viewModel) }
+        composable("catalogo") { PantallaCatalogo(navController, viewModel) }
+        composable("agregar") { PantallaAgregarReceta(navController, viewModel) }
         composable("detalle") { PantallaDetalleReceta(navController) }
         composable("ajustes") { PantallaAjustes(navController) }
 
     }
 }
 
-// --- 4. LAS 5 PANTALLAS (CASCARONES VACÍOS) ---
-
-@Composable
-fun PantallaInicio(navController: NavController) {
-    Text("1. Pantalla de Inicio (Dashboard)")
-}
-
-@Composable
-fun PantallaCatalogo(navController: NavController) {
-    Text("2. Catálogo de Recetas")
-}
+//// --- LAS 5 PANTALLAS (Cascarones vacíos temporalmente, excepto Inicio y Catálogo que ya tienen su propio archivo) ---
 
 @Composable
 fun PantallaAgregarReceta(navController: NavController) {
