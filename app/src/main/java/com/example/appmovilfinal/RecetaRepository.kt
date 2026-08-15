@@ -11,4 +11,9 @@ class RecetaRepository(private val recetaDao: RecetaDao) {
     suspend fun insertar(receta: Receta) {
         recetaDao.insertarReceta(receta)
     }
+
+    // Función para traer las recetas de internet usando Retrofit
+    suspend fun obtenerRecetasTopRemotas(): List<RecetaRemota> {
+        return RetrofitClient.api.obtenerRecetasTop().recipes
+    }
 }

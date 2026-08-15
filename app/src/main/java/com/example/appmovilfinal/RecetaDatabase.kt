@@ -5,14 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-// 1. Definición de la Base de Datos con la nueva Entidad
-@Database(entities = [Receta::class], version = 1, exportSchema = false)
+// 1. Subimos la versión a 2
+@Database(entities = [Receta::class], version = 2, exportSchema = false)
 abstract class RecetaDatabase : RoomDatabase() {
 
-    // 2. Conexión con el nuevo DAO
     abstract fun recetaDao(): RecetaDao
 
-    // 3. Patrón Singleton para evitar múltiples instancias
     companion object {
         @Volatile
         private var INSTANCE: RecetaDatabase? = null
@@ -23,7 +21,10 @@ abstract class RecetaDatabase : RoomDatabase() {
                     context.applicationContext,
                     RecetaDatabase::class.java,
                     "receta_database"
-                ).build()
+                )
+                    // 2. Agregamos esta línea para que borre y recree la tabla si cambia la versión
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

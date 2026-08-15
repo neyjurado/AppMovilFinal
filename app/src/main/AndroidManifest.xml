@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 1. Pedimos el permiso de la cámara al usuario -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 2. Le decimos a la tienda que nuestra app prefiere usar la cámara, pero no es 100% obligatoria -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +17,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppMovilFinal">
+        android:theme="@style/Theme.AppMovilFinal"
+        tools:targetApi="31"
+        xmlns:tools="http://schemas.android.com/tools">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -18,10 +28,20 @@
             android:theme="@style/Theme.AppMovilFinal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- Aquí registramos la ruta para poder guardar la foto temporal de la cámara -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
 </manifest>

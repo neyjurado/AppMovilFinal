@@ -56,7 +56,16 @@ fun NavegacionPrincipal() {
         composable("inicio") { PantallaInicio(navController, viewModel) }
         composable("catalogo") { PantallaCatalogo(navController, viewModel) }
         composable("agregar") { PantallaAgregarReceta(navController, viewModel) }
-        composable("detalle") { PantallaDetalleReceta(navController) }
+        composable(
+            route = "detalle/{recetaId}",
+            arguments = listOf(androidx.navigation.navArgument("recetaId") { type = androidx.navigation.NavType.IntType })
+        ) { backStackEntry ->
+            val id = backStackEntry.arguments?.getInt("recetaId") ?: 0
+            PantallaDetalleReceta(navController, viewModel, id)
+        }
+        composable("recetas_top") {
+            PantallaRecetasTop(navController = navController, viewModel = viewModel)
+        }
         composable("ajustes") { PantallaAjustes(navController) }
 
     }
