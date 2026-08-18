@@ -36,5 +36,8 @@ El proyecto fue construido utilizando **MVVM (Model-View-ViewModel)** combinado 
 *   *Captura 5: Pantalla de Ajustes (Modo Oscuro activado)*
 <img width="1080" height="2400" alt="WhatsApp Image 2026-08-16 at 9 46 37 PM (2)" src="https://github.com/user-attachments/assets/cbc2c78c-2d33-49ee-9654-9605ce2e9896" />
 
+*   *Captura Diagrama*
+<img width="4325" height="3368" alt="Jetpack Compose UI Flow-2026-08-17-025024" src="https://github.com/user-attachments/assets/e1e798c3-d57f-4284-a787-eab7295bbcf2" />
 
+  
 *Ney Jurado* - Proyecto Final de Aplicaciones Móviles.
