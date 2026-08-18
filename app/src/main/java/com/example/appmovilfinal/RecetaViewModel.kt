@@ -38,6 +38,13 @@ class RecetaViewModel(private val repository: RecetaRepository) : ViewModel() {
         }
     }
 
+    //FUNCIÓN PARA BORRAR
+    fun borrarReceta(receta: Receta) {
+        viewModelScope.launch {
+            repository.borrar(receta)
+        }
+    }
+
     // --- DATOS REMOTOS (API de internet con Retrofit) ---
     private val _recetasTop = MutableStateFlow<List<RecetaRemota>>(emptyList())
     val recetasTop: StateFlow<List<RecetaRemota>> = _recetasTop

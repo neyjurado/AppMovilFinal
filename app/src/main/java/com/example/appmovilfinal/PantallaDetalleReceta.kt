@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete // --- NUEVA IMPORTACIÓN ---
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -30,6 +31,19 @@ fun PantallaDetalleReceta(navController: NavController, viewModel: RecetaViewMod
                         Icon(Icons.Default.ArrowBack, contentDescription = "Regresar")
                     }
                 },
+                // --- NUEVO: Botón de Borrar en la esquina superior derecha ---
+                actions = {
+                    if (recetaSeleccionada != null) {
+                        IconButton(onClick = {
+                            // 1. Mandamos la orden abstracta al ViewModel
+                            viewModel.borrarReceta(recetaSeleccionada)
+                            // 2. Regresamos a la pantalla anterior (el catálogo)
+                            navController.popBackStack()
+                        }) {
+                            Icon(Icons.Default.Delete, contentDescription = "Borrar Receta")
+                        }
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 )
@@ -44,7 +58,7 @@ fun PantallaDetalleReceta(navController: NavController, viewModel: RecetaViewMod
                     .padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                // --- NUEVO: Imagen principal de la receta ---
+                // Imagen principal de la receta
                 if (recetaSeleccionada.imagenUri != null) {
                     AsyncImage(
                         model = recetaSeleccionada.imagenUri,

@@ -23,6 +23,7 @@ abstract class RecetaDatabase : RoomDatabase() {
                     "receta_database"
                 )
                     // 2. Agregamos esta línea para que borre y recree la tabla si cambia la versión
+                    // aqui va la vercion de la base de datos
                     .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance

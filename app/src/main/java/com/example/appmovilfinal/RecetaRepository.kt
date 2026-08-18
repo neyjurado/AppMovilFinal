@@ -12,6 +12,12 @@ class RecetaRepository(private val recetaDao: RecetaDao) {
         recetaDao.insertarReceta(receta)
     }
 
+    // FUNCIÓN PARA BORRAR
+    // 3. Función asíncrona para eliminar una receta existente
+    suspend fun borrar(receta: Receta) {
+        recetaDao.borrarReceta(receta)
+    }
+
     // Función para traer las recetas de internet usando Retrofit
     suspend fun obtenerRecetasTopRemotas(): List<RecetaRemota> {
         return RetrofitClient.api.obtenerRecetasTop().recipes
