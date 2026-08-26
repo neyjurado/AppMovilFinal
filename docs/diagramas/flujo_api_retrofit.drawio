@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="flujo-retrofit" name="Flujo API Retrofit">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UI" value="&lt;b&gt;PantallaRecetasTop&lt;/b&gt;&lt;br&gt;(LaunchedEffect)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ViewModel" value="&lt;b&gt;RecetaViewModel&lt;/b&gt;&lt;br&gt;cargarRecetasTop()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="280" y="160" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Repo" value="&lt;b&gt;RecetaRepository&lt;/b&gt;&lt;br&gt;obtenerRecetasTopRemotas()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="520" y="160" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Retrofit" value="&lt;b&gt;RetrofitClient.api&lt;/b&gt;&lt;br&gt;HTTP GET dummyjson.com/recipes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="800" y="160" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Error" value="&lt;b&gt;Error (IOException)&lt;/b&gt;&lt;br&gt;UI muestra Card Warning + Reintentar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="280" y="280" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Exito" value="&lt;b&gt;Éxito (JSON Response)&lt;/b&gt;&lt;br&gt;List&amp;lt;RecetaRemota&amp;gt; -&amp;gt; UI LazyColumn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Cargando" value="&lt;b&gt;Estado: Cargando&lt;/b&gt;&lt;br&gt;CircularProgressIndicator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="UI" target="ViewModel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="ViewModel" target="Repo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="Repo" target="Retrofit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="Retrofit" target="Exito">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="Retrofit" target="Error">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="380" />
+              <mxPoint x="400" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="flujo-nav" name="Flujo de Navegación">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Inicio" value="&lt;b&gt;PantallaInicio&lt;/b&gt;&lt;br&gt;(startDestination)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ajustes" value="&lt;b&gt;PantallaAjustes&lt;/b&gt;&lt;br&gt;ruta: 'ajustes'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="120" y="240" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Catalogo" value="&lt;b&gt;PantallaCatalogo&lt;/b&gt;&lt;br&gt;ruta: 'catalogo'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="520" y="240" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Agregar" value="&lt;b&gt;PantallaAgregarReceta&lt;/b&gt;&lt;br&gt;ruta: 'agregar'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="320" y="400" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Detalle" value="&lt;b&gt;PantallaDetalleReceta&lt;/b&gt;&lt;br&gt;ruta: 'detalle/{recetaId}'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="400" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RecetasTop" value="&lt;b&gt;PantallaRecetasTop&lt;/b&gt;&lt;br&gt;ruta: 'recetas_top'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="720" y="400" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="Inicio" target="Ajustes">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Click Ajustes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge1">
+            <mxGeometry x="0.1" y="-1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="Inicio" target="Catalogo">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Click Catálogo" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge2">
+            <mxGeometry x="0.1" y="2" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="Catalogo" target="Agregar">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Click FAB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge3">
+            <mxGeometry x="0.2" y="-2" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="Catalogo" target="Detalle">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Click Item (pasa ID)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge4">
+            <mxGeometry x="0.2" y="2" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="Catalogo" target="RecetasTop">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Click Ver API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge5">
+            <mxGeometry x="0.1" y="-1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

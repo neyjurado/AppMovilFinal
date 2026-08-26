@@ -37,7 +37,7 @@ fun PantallaAgregarReceta(navController: NavController, viewModel: RecetaViewMod
 
     // El "Contrato" de la cámara
     val cameraLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.TakePicture()
+        contract = ActivityResultContracts.TakePicture()//no tendra previsualisacion como con take picturepreview
     ) { exito ->
         if (exito) {
             imagenGuardada = uriTemporal.toString()

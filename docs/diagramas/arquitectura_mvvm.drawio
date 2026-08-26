@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="arq-mvvm" name="Arquitectura MVVM">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UI_Layer" value="&lt;b&gt;UI Layer (Jetpack Compose)&lt;/b&gt;&lt;br&gt;Pantallas: Inicio, Catalogo, Agregar, Detalle, RecetasTop, Ajustes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ViewModel_Layer" value="&lt;b&gt;ViewModel Layer&lt;/b&gt;&lt;br&gt;RecetaViewModel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Repository_Layer" value="&lt;b&gt;Repository Layer&lt;/b&gt;&lt;br&gt;RecetaRepository" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="200" y="400" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Data_Layer" value="&lt;b&gt;Data Layer&lt;/b&gt;&lt;br&gt;Room (Local) | Retrofit (Remoto) | DataStore (Preferencias)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="200" y="560" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="UI_Layer" target="ViewModel_Layer">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Eventos / LaunchedEffect" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge1">
+            <mxGeometry x="0.2" y="1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="ViewModel_Layer" target="UI_Layer">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="StateFlow (Estados UI)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge2">
+            <mxGeometry x="-0.3" y="-1" relative="1" as="geometry">
+              <mxPoint x="-40" y="-10" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="ViewModel_Layer" target="Repository_Layer">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="suspend calls" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge3">
+            <mxGeometry x="-0.15" y="-1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="Repository_Layer" target="ViewModel_Layer">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Flow&amp;lt;T&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge4">
+            <mxGeometry x="-0.25" y="-2" relative="1" as="geometry">
+              <mxPoint x="-35" y="-10" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="Repository_Layer" target="Data_Layer">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="DAO, API calls, DataStore edits" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="edge5">
+            <mxGeometry x="-0.35" y="1" relative="1" as="geometry">
+              <mxPoint y="10" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

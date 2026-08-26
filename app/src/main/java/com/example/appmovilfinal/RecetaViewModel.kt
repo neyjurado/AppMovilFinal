@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class RecetaViewModel(private val repository: RecetaRepository) : ViewModel() {
 
@@ -64,9 +65,13 @@ class RecetaViewModel(private val repository: RecetaRepository) : ViewModel() {
                 val resultado = repository.obtenerRecetasTopRemotas()
                 _recetasTop.value = resultado
                 _estadoCarga.value = false
+            } catch (e: IOException) {
+                // Error de conexión de red (sin internet, timeout, DNS)
+                _errorApi.value = "No se pudo conectar a internet. Por favor, verifica tu conexión (Wi-Fi o datos móviles) para explorar las recetas globales."
+                _estadoCarga.value = false
             } catch (e: Exception) {
-                // Manejo de errores si no hay internet o falla el servidor
-                _errorApi.value = "Error al conectar con el servidor: ${e.localizedMessage}"
+                // Otro tipo de fallo del servidor o inesperado
+                _errorApi.value = "Ocurrió un inconveniente al consultar las recetas del servidor. Por favor, inténtalo de nuevo más tarde."
                 _estadoCarga.value = false
             }
         }
