@@ -20,10 +20,10 @@ fun PantallaAjustes(navController: NavController) {
     // Instanciamos nuestra clase administradora de DataStore
     val dataStore = remember { AjustesDataStore(context) }
 
-    // Herramienta para lanzar corrutinas desde la interfaz visual
+    // lanzar corrutinas desde la interfaz visual
     val coroutineScope = rememberCoroutineScope()
 
-    // Leemos el valor guardado en el celular de forma reactiva (por defecto 'false')
+    // Leemos el valor guardado en el celular de forma reactiva
     val modoOscuroActivado by dataStore.modoOscuroFlow.collectAsState(initial = false)
 
     Scaffold(
@@ -63,7 +63,7 @@ fun PantallaAjustes(navController: NavController) {
                 Switch(
                     checked = modoOscuroActivado,
                     onCheckedChange = { activado ->
-                        // Guardar en DataStore es una tarea asíncrona, usamos una corrutina
+                        // corrutina con launch
                         coroutineScope.launch {
                             dataStore.guardarModoOscuro(activado)
                         }

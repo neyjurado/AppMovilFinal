@@ -23,7 +23,7 @@ fun PantallaInicio(navController: NavController, viewModel: RecetaViewModel) {
             TopAppBar(
                 title = { Text("Inicio", fontWeight = FontWeight.Bold) },
                 actions = {
-                    // --- NUEVO: Botón de Ajustes ---
+                    // Botón de Ajustes
                     IconButton(onClick = { navController.navigate("ajustes") }) {
                         Icon(
                             imageVector = Icons.Filled.Settings,
@@ -39,7 +39,7 @@ fun PantallaInicio(navController: NavController, viewModel: RecetaViewModel) {
             )
         }
     ) { paddingValues ->
-        // 3. Columna central para alinear todo al medio
+        // 3. Columna central para alinear al centro
         Column(
             modifier = Modifier
                 .fillMaxSize()

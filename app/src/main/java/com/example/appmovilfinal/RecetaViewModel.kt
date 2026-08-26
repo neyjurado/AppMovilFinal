@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class RecetaViewModel(private val repository: RecetaRepository) : ViewModel() {
 
-    // --- DATOS LOCALES (Base de datos Room) ---
+    // DATOS LOCALES (Base de datos Room
     val recetas: StateFlow<List<Receta>> = repository.todasLasRecetas
         .stateIn(
             scope = viewModelScope,
@@ -45,7 +45,7 @@ class RecetaViewModel(private val repository: RecetaRepository) : ViewModel() {
         }
     }
 
-    // --- DATOS REMOTOS (API de internet con Retrofit) ---
+    //DATOS REMOTOS (API de internet con Retrofit)
     private val _recetasTop = MutableStateFlow<List<RecetaRemota>>(emptyList())
     val recetasTop: StateFlow<List<RecetaRemota>> = _recetasTop
 
@@ -73,7 +73,7 @@ class RecetaViewModel(private val repository: RecetaRepository) : ViewModel() {
     }
 }
 
-// El Fabricante (Factory) para construir este ViewModel
+// El Fabricante (Factory) para crear este ViewModel con dependencias
 class RecetaViewModelFactory(private val repository: RecetaRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RecetaViewModel::class.java)) {

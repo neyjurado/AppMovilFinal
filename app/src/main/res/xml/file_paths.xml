@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <!-- Le decimos a Android que guardaremos las fotos en la memoria caché temporal de la app -->
     <cache-path name="fotos_recetas" path="." />
 </paths>

@@ -40,13 +40,13 @@ fun PantallaCatalogo(navController: NavController, viewModel: RecetaViewModel) {
             }
         }
     ) { paddingValues ->
-        // 3. Contenedor principal en columna para acomodar el botón y la lista
+        // 3. Contenedor principal
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            // --- NUEVO: Botón de Recetas Top para consumir la API ---
+            // Botón de Recetas Top para consumir la Api
             Button(
                 onClick = { navController.navigate("recetas_top") },
                 modifier = Modifier
@@ -57,7 +57,7 @@ fun PantallaCatalogo(navController: NavController, viewModel: RecetaViewModel) {
                 Text("🌟 Explorar Recetas Top (API)", fontWeight = FontWeight.Bold)
             }
 
-            // 4. LazyColumn: La lista deslizable (scroll) de recetas locales
+            // 4. LazyColum para hacer (scroll) de recetas locales
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
@@ -112,7 +112,7 @@ fun ItemReceta(receta: Receta, navController: NavController, onClick: () -> Unit
                 Text(
                     text = "Ingredientes: ${receta.ingredientes}",
                     style = MaterialTheme.typography.bodyMedium,
-                    maxLines = 2 // Si hay muchos ingredientes, corta el texto con "..."
+                    maxLines = 2
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(

@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            // 1. Leemos el DataStore al nivel más alto de la app para saber si activar el modo oscuro
+            // 1. Leemos el DataStore para saber si activar el modo oscuro
             val context = LocalContext.current
             val ajustesDataStore = remember { AjustesDataStore(context) }
             val modoOscuroActivado by ajustesDataStore.modoOscuroFlow.collectAsState(initial = false)
@@ -55,7 +55,7 @@ fun NavegacionPrincipal() {
     val database = RecetaDatabase.getDatabase(context)
     val repository = RecetaRepository(database.recetaDao())
 
-    // 3. Creamos el ViewModel usando nuestra fábrica (Factory)
+    // 3. Creamos el ViewModel
     val viewModel: RecetaViewModel = viewModel(
         factory = RecetaViewModelFactory(repository)
     )

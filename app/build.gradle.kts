@@ -69,16 +69,16 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
 
-    // Catálogo de Íconos de Material Design
+    // Catálogo de Íconos
     implementation("androidx.compose.material:material-icons-extended")
 
-    // Librería Coil para cargar imágenes asíncronas
+    // Librería Coil para cargar imágenes
     implementation("io.coil-kt:coil-compose:2.5.0")
 
     // Librerías de Retrofit para consumir APIs REST
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    // Librería oficial para DataStore (Preferencias de usuario)
+    // Librería oficial para DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 }

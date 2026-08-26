@@ -21,12 +21,12 @@ import coil.compose.AsyncImage
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaRecetasTop(navController: NavController, viewModel: RecetaViewModel) {
-    // Escuchamos los tres estados que configuramos en el ViewModel
+    // tres estados que configuramos en el ViewModel
     val listaRecetas by viewModel.recetasTop.collectAsState()
     val estaCargando by viewModel.estadoCarga.collectAsState()
     val error by viewModel.errorApi.collectAsState()
 
-    // Este bloque ejecuta la función de internet la primera vez que se entra a la pantalla
+    // cargamos las recetas
     LaunchedEffect(Unit) {
         viewModel.cargarRecetasTop()
     }
@@ -109,14 +109,14 @@ fun ItemRecetaTop(receta: RecetaRemota) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(text = "⏱️ ${receta.prepTimeMinutes} min", color = MaterialTheme.colorScheme.primary)
 
-                // --- NUEVA SECCIÓN DE DETALLES EXPANDIBLES ---
+                // DETALLES EXPANDIBLES
                 if (expandido) {
                     Spacer(modifier = Modifier.height(12.dp))
                     HorizontalDivider()
                     Spacer(modifier = Modifier.height(12.dp))
 
                     Text(text = "Ingredientes:", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleMedium)
-                    // La API devuelve una lista, así que la unimos con comas
+                    // La API devuelve una lista
                     Text(text = receta.ingredients.joinToString(", "), style = MaterialTheme.typography.bodyMedium)
 
                     Spacer(modifier = Modifier.height(8.dp))

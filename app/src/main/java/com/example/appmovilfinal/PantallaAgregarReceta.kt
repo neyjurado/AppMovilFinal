@@ -44,7 +44,7 @@ fun PantallaAgregarReceta(navController: NavController, viewModel: RecetaViewMod
         }
     }
 
-    // --- NUEVO: LANZADOR DE PERMISOS ---
+    // LANZADOR DE PERMISOS
     val permisoLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
@@ -54,7 +54,7 @@ fun PantallaAgregarReceta(navController: NavController, viewModel: RecetaViewMod
             uriTemporal = uri
             cameraLauncher.launch(uri)
         } else {
-            // CUMPLE REQUISITO: Manejo del caso en que el usuario lo rechace
+            //  Manejo del caso en que el usuario lo rechace
             Toast.makeText(context, "Permiso denegado. No se puede tomar foto.", Toast.LENGTH_SHORT).show()
         }
     }
@@ -79,7 +79,7 @@ fun PantallaAgregarReceta(navController: NavController, viewModel: RecetaViewMod
             OutlinedTextField(value = tiempo, onValueChange = { tiempo = it }, label = { Text("Tiempo (minutos)") }, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), modifier = Modifier.fillMaxWidth())
             OutlinedTextField(value = instrucciones, onValueChange = { instrucciones = it }, label = { Text("Instrucciones") }, modifier = Modifier.fillMaxWidth(), minLines = 3)
 
-            // --- BOTÓN DE CÁMARA ACTUALIZADO ---
+            // BOTÓN DE CÁMARA
             Button(
                 onClick = {
                     // Verificamos si ya tenemos el permiso

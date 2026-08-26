@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 1. Pedimos el permiso de la cámara al usuario -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- 2. Le decimos a la tienda que nuestra app prefiere usar la cámara, pero no es 100% obligatoria -->
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />     <!-- usar la cámara -->
+
 
     <application
         android:allowBackup="true"
