@@ -30,10 +30,13 @@ El proyecto fue construido utilizando **MVVM (Model-View-ViewModel)** combinado 
 *   *Captura 3: Pantalla de Agregar*
 * <img width="1080" height="2400" alt="WhatsApp Image 2026-08-16 at 9 46 37 PM" src="https://github.com/user-attachments/assets/abd8caa2-2a0c-46db-a00a-fd87888f5ae2" />
 
-*   *Captura 4: Pantalla Recetas Top mostrando el consumo de API*
+*   *Captura 4: Pantalla de Agregar*
+*   <img width="720" height="1600" alt="WhatsApp Image 2026-08-26 at 11 06 52 AM" src="https://github.com/user-attachments/assets/1ba6b5ba-77ca-4f54-8577-7245585b995a" />
+
+*   *Captura 5: Pantalla Recetas Top mostrando el consumo de API*
 *   <img width="720" height="1600" alt="WhatsApp Image 2026-08-16 at 9 46 37 PM (1)" src="https://github.com/user-attachments/assets/cf018807-88f4-45e7-89fb-123198820d36" />
 
-*   *Captura 5: Pantalla de Ajustes (Modo Oscuro activado)*
+*   *Captura 6: Pantalla de Ajustes (Modo Oscuro activado)*
 <img width="1080" height="2400" alt="WhatsApp Image 2026-08-16 at 9 46 37 PM (2)" src="https://github.com/user-attachments/assets/cbc2c78c-2d33-49ee-9654-9605ce2e9896" />
 
 *   *Captura Diagrama*
