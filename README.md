@@ -37,7 +37,8 @@ El proyecto fue construido utilizando **MVVM (Model-View-ViewModel)** combinado 
 <img width="1080" height="2400" alt="WhatsApp Image 2026-08-16 at 9 46 37 PM (2)" src="https://github.com/user-attachments/assets/cbc2c78c-2d33-49ee-9654-9605ce2e9896" />
 
 *   *Captura Diagrama*
-<img width="4325" height="3368" alt="Jetpack Compose UI Flow-2026-08-17-025024" src="https://github.com/user-attachments/assets/e1e798c3-d57f-4284-a787-eab7295bbcf2" />
+<img width="4702" height="4319" alt="Jetpack Compose Recipe Flow-2026-08-26-130155" src="https://github.com/user-attachments/assets/55b0fea5-26f2-4b48-8e05-90797d9e95b6" />
+
 
   
 *Ney Jurado* - Proyecto Final de Aplicaciones Móviles.
