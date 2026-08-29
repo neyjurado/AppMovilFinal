@@ -17,13 +17,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun PantallaAjustes(navController: NavController) {
     val context = LocalContext.current
-    // Instanciamos nuestra clase administradora de DataStore
     val dataStore = remember { AjustesDataStore(context) }
-
-    // lanzar corrutinas desde la interfaz visual
     val coroutineScope = rememberCoroutineScope()
-
-    // Leemos el valor guardado en el celular de forma reactiva
     val modoOscuroActivado by dataStore.modoOscuroFlow.collectAsState(initial = false)
 
     Scaffold(

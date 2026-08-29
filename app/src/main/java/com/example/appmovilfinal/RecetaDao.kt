@@ -5,7 +5,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-
 @Dao
 interface RecetaDao {
 
@@ -15,7 +14,6 @@ interface RecetaDao {
     @Query("SELECT * FROM recetas ORDER BY id DESC")
     fun obtenerTodasLasRecetas(): Flow<List<Receta>>
 
-    // FUNCIÓN PARA BORRAR
     @Delete
     suspend fun borrarReceta(receta: Receta)
 }
